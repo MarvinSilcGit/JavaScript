@@ -110,3 +110,25 @@ function resto_inteiro_divisao (valor1, valor2)
     }
 
 }
+
+
+function raiz_quadrada(numero)
+{
+    let base = 2;
+
+    let resultado_raiz_quadrada = (base + numero / base) / 2;
+
+    resultado_raiz_quadrada = resultado_raiz_quadrada ** 2;
+
+    while (resultado_raiz_quadrada * resultado_raiz_quadrada -  numero > 0.001)
+    {
+
+        base = resultado_raiz_quadrada;
+
+        resultado_raiz_quadrada = (base + numero / base) / 2;
+
+    }
+
+    return `A raiz quadrada de ${numero} é ${resultado_raiz_quadrada}`;
+
+}
