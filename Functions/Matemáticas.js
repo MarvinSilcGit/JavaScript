@@ -132,3 +132,78 @@ function raiz_quadrada(numero)
     return `A raiz quadrada de ${numero} é ${resultado_raiz_quadrada}`;
 
 }
+
+
+function numero_primo(numero)
+{
+    let confirmacao = 2;
+
+    if (numero === 0 || numero === 1)
+    {
+
+        return 'Esse número é inválido';
+
+    }
+
+    if (numero === 3 || numero === 2)
+    {
+
+        return `${numero} é um número primo`;
+
+    }
+
+    else
+    {
+        for (let contador = confirmacao; contador < numero + 1; contador++)
+        {
+
+            if (numero % contador !== 0)
+            {
+
+                confirmacao += 1;
+
+            }
+
+        }
+
+        if (confirmacao === numero)
+        {
+
+            return `${numero} é um número primo, pois ele é divisível somente por ele e por 1`;
+
+        }
+
+        else
+        {
+            process.stdout.write(`O número ${numero} não é primo, pois ele é divisível por: `);
+
+            for (let contador = 1; contador < numero + 1; contador++)
+            {
+
+                if (numero % contador === 0)
+                {
+
+                    if (numero - contador === 0)
+                    {
+
+                        process.stdout.write(`${contador} `);
+
+                    }
+
+                    else
+                    {
+                        process.stdout.write(`${contador}, `);
+
+
+                    }
+
+                }
+            }
+
+            return '';
+
+        }
+
+    }
+
+}
