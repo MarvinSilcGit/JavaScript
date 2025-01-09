@@ -51,8 +51,3 @@ function resto_divisao(valor1, valor2)
     }
 
 }
-
-for (let contador = 0; contador < 10; contador++)
-{
-    console.log(resto_divisao(contador,4))
-}
