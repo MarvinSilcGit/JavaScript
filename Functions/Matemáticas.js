@@ -500,7 +500,7 @@ function calculo_tmb(peso, altura, idade, genero)
 
     const lista_generos = ['Masculino', 'masculino', 'Feminino', 'feminino'];
 
-    if (genero.includes('Masculino', 0) === false)
+    if (lista_generos.includes(genero, 0) === false)
     {
         return 'Gênero inválido';
 
@@ -525,3 +525,5 @@ function calculo_tmb(peso, altura, idade, genero)
     }
 
 }
+
+console.log(calculo_tmb(71, 171, 26, 'Feminino'));
