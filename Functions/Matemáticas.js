@@ -607,3 +607,18 @@ function ano_bissexto(ano)
     }
 
 }
+
+
+function gerador_tabuada_simples(numero_tabuada)
+{
+
+    for (let contador = 1; contador < 11; contador++)
+    {
+
+        console.log(`${numero_tabuada} x ${contador} = ${numero_tabuada * contador}`);
+
+    }
+
+    return "";
+
+}
