@@ -1,5 +1,6 @@
 function resto_divisao(valor1, valor2)
 {
+
     let resto = 0;
 
     if (valor1 === 0 || valor2 === 0)
@@ -7,7 +8,9 @@ function resto_divisao(valor1, valor2)
 
         return "Divisão por zero inválida";
 
-    }else
+    }
+
+    else
     {
 
         if (valor1 === valor2)
@@ -33,6 +36,7 @@ function resto_divisao(valor1, valor2)
 
         else
         {
+
             while (valor1 + resto < valor2)
             {
 
@@ -57,6 +61,7 @@ function resto_divisao(valor1, valor2)
 
 function resto_inteiro_divisao (valor1, valor2)
 {
+
     let resto_inteiro = 0;
 
     let resto = 0;
@@ -67,14 +72,17 @@ function resto_inteiro_divisao (valor1, valor2)
         return 'Divisão por zero é inválida';
 
     }
+
     else
     {
+
         if (valor1 === valor2)
         {
 
             resto_inteiro = 1
 
         }
+
         else if (valor1 > valor2)
         {
 
@@ -117,6 +125,7 @@ function resto_inteiro_divisao (valor1, valor2)
 
 function raiz_quadrada(numero)
 {
+
     let base = 2;
 
     let resultado_raiz_quadrada = (base + numero / base) / 2;
@@ -139,6 +148,7 @@ function raiz_quadrada(numero)
 
 function numero_primo(numero)
 {
+
     let confirmacao = 2;
 
     if (numero === 0 || numero === 1)
@@ -157,6 +167,7 @@ function numero_primo(numero)
 
     else
     {
+
         for (let contador = confirmacao; contador < numero + 1; contador++)
         {
 
@@ -214,12 +225,14 @@ function numero_primo(numero)
 
 function numero_par_impar(numero)
 {
+
     if (numero % 2 === 0)
     {
 
         return `O número ${numero} é par`;
 
     }
+
     else
     {
 
@@ -232,6 +245,7 @@ function numero_par_impar(numero)
 
 function valor_palindromo(valor)
 {
+
     let contador2 = 0;
 
     if (valor.length <= 2)
@@ -277,6 +291,7 @@ function valor_palindromo(valor)
 
 function atm_machine(valor)
 {
+
     let valor_pagamento = valor;
 
     if (valor_pagamento < 1)
@@ -408,6 +423,7 @@ function atm_machine(valor)
     }
 
 }
+
 // Acessar Valores
 /*for (let contador = 1; contador < 20+1; contador++)
 {
@@ -419,5 +435,20 @@ function atm_machine(valor)
     }
 
 }
-
 console.log(atm_machine(16));*/
+
+
+function calculo_fatorial(numero)
+{
+
+    let resultado_fatorial = numero;
+
+    for (let contador = numero; contador === 1; contador--)
+    {
+
+        resultado_fatorial *= (contador - 1);
+
+    }
+
+    return resultado_fatorial;
+}
