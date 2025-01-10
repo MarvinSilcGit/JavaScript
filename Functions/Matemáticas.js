@@ -526,4 +526,53 @@ function calculo_tmb(peso, altura, idade, genero)
 
 }
 
-console.log(calculo_tmb(71, 171, 26, 'Feminino'));
+
+function triangulo_validade_tipo(lado1, lado2, lado3)
+{
+
+    if (lado1 <= 0 || lado2 <= 0 || lado3 <= 0)
+    {
+
+        return 'Um triângulo naõ poder ter lado 0';
+
+    }
+
+    else
+    {
+
+        if (lado1 + lado2 <= lado3)
+        {
+
+            return 'A somas desse lados não forma um triângulo';
+
+        }
+
+        else
+        {
+
+            if (lado1 === lado2 && lado2 === lado3 && lado1 === lado3)
+            {
+
+                return 'Esse é um triângulo equilátero';
+
+            }
+
+            else if (lado1 !== lado2 && lado2 !== lado3 && lado3 !== lado1)
+            {
+
+                return 'Esse é um triângulo escaleno';
+
+            }
+
+            else if (lado1 === lado2 || lado2 === lado3 || lado1 === lado3)
+            {
+
+                return 'Esse é um triângulo isóceles';
+
+            }
+
+        }
+
+    }
+
+}
