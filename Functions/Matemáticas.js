@@ -443,12 +443,18 @@ function calculo_fatorial(numero)
 
     let resultado_fatorial = numero;
 
-    for (let contador = numero; contador === 1; contador--)
+    let contador = numero;
+
+    while (contador !== 1)
     {
 
-        resultado_fatorial *= (contador - 1);
+        resultado_fatorial *= contador - 1;
+
+        contador--;
 
     }
 
     return resultado_fatorial;
 }
+
+console.log(calculo_fatorial(5));
