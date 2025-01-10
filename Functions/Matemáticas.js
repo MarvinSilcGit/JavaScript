@@ -456,5 +456,3 @@ function calculo_fatorial(numero)
 
     return resultado_fatorial;
 }
-
-console.log(calculo_fatorial(5));
