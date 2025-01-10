@@ -486,4 +486,42 @@ function celsius_fahrenheit(temperatura)
     return `A temperatura em ${temperatura.toFixed(1)}° celsius equivale à ${fahrenheit.toFixed(1)}° fahrenheit`;
 }
 
-console.log(celsius_fahrenheit(122))
+
+function calculo_imc(peso, altura)
+{
+
+    return peso / altura ** 2;
+
+}
+
+
+function calculo_tmb(peso, altura, idade, genero)
+{
+
+    const lista_generos = ['Masculino', 'masculino', 'Feminino', 'feminino'];
+
+    if (genero.includes('Masculino', 0) === false)
+    {
+        return 'Gênero inválido';
+
+    }
+
+    else
+    {
+
+        if (genero === 'Masculino' || genero === 'masculino')
+        {
+
+            return (10 * peso) + (6.25 * altura) - (5 * idade) + 5;
+
+        }
+        else if (genero === 'Feminino' || genero === 'feminino')
+        {
+
+            return (10 * peso) + (6.25 * altura) - (5 * idade) - 161;
+
+        }
+
+    }
+
+}
