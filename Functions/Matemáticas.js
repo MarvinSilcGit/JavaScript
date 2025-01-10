@@ -609,6 +609,37 @@ function ano_bissexto(ano)
 }
 
 
+function numero_decimal_inteiro(numero)
+{
+
+    let numero_inteiro = Math.trunc(numero);
+
+    if (numero > numero_inteiro)
+    {
+
+        return `O número ${numero} é decimal`;
+
+    }
+
+    else
+    {
+        if (numero.includes('.'))
+        {
+            return `O número ${numero} é decimal`;
+        }
+
+        else
+        {
+
+            return `O número ${numero} não é decimal`;
+
+        }
+
+    }
+
+}
+
+
 function gerador_tabuada_simples(numero_tabuada)
 {
 
