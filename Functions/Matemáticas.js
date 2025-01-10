@@ -653,3 +653,18 @@ function gerador_tabuada_simples(numero_tabuada)
     return "";
 
 }
+
+
+function gerador_tabuada_inico_fim(numero_inicial_tabuada, numero_final_tabuada)
+{
+
+    for (let contador = 1; contador < numero_final_tabuada + 1; contador++)
+    {
+
+        console.log(`${numero_inicial_tabuada} x ${contador} = ${numero_inicial_tabuada * contador}`);
+
+    }
+
+    return 0
+
+}
