@@ -576,3 +576,34 @@ function triangulo_validade_tipo(lado1, lado2, lado3)
     }
 
 }
+
+
+function ano_bissexto(ano)
+{
+
+    if (ano % 4 === 0)
+    {
+
+        if (ano % 100 !== 0)
+        {
+
+            return `O ano ${ano} é bissexto`;
+
+        }
+
+        else if (ano % 100 === 0)
+        {
+
+            return `O ano ${ano} é bissexto especial`;
+
+        }
+
+    }
+
+    else
+    {
+        return `O ano ${ano} não é bissexto`
+
+    }
+
+}
