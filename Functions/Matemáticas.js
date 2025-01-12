@@ -655,19 +655,36 @@ function gerador_tabuada_simples(numero_tabuada)
 }
 
 
-function gerador_tabuada_inico_fim(numero_inicial_tabuada, numero_final_tabuada)
+function gerador_tabuada_inico_fim(numero_inicial, numero_final)
 {
 
-    for (let contador = 1; contador < numero_final_tabuada + 1; contador++)
+    for (let contador = 1; contador < numero_final + 1; contador++)
     {
 
-        console.log(`${numero_inicial_tabuada} x ${contador} = ${numero_inicial_tabuada * contador}`);
+        console.log(`${numero_inicial} x ${contador} = ${numero_inicial * contador}`);
 
     }
 
     return 0
 
 }
+
+
+function gerador_tabuada_inicio_fim_razao(numero_inicial, numero_final, razao)
+{
+
+    for (let contador = 1; contador <= numero_final + 1; razao++)
+    {
+
+        console.log(`${numero_inicial} x ${contador} = ${numero_inicial * contador}`)
+
+    }
+
+    return 0;
+
+}
+
+console.log(gerador_tabuada_inicio_fim_razao(1, 10, 1));
 
 function numero_fizz_buzz(numero)
 {
