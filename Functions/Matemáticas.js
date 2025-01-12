@@ -668,3 +668,43 @@ function gerador_tabuada_inico_fim(numero_inicial_tabuada, numero_final_tabuada)
     return 0
 
 }
+
+function numero_fizz_buzz(numero)
+{
+
+    if (numero <= 0)
+    {
+
+        return 'Número menores que 1 não são válidos';
+
+    }
+
+    if (numero % 3 === 0 && numero % 5 === 0 && numero !== 0)
+    {
+
+        return `O número ${numero} é FizzBuzz`;
+
+    }
+
+    else if (numero % 3 === 0)
+    {
+
+        return `O número ${numero} é Fizz`;
+
+    }
+
+    else if (numero % 5 === 0)
+    {
+
+        return `O número ${numero} é Buzz`;
+
+    }
+
+    else
+    {
+
+        return `O número ${numero} não é nem Fizz ou nem Buzz`;
+
+    }
+
+}
