@@ -726,6 +726,7 @@ function numero_fizz_buzz(numero)
 
 }
 
+
 function juros_compostos(valor_inicial, aporte_mensal, juros_anual, quantidade_meses)
 {
 
