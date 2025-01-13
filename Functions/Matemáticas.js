@@ -53,7 +53,7 @@ function resto_divisao(valor1, valor2)
 
         }
 
-        return `O resto da divisão entre ${valor1} e ${valor2} é: ${resto}`;
+        return `O resto da divisão entre ${valor1.toFixed(1)} e ${valor2.toFixed(1)} é: ${resto.toFixed(2)}`;
     }
 
 }
@@ -116,7 +116,7 @@ function resto_inteiro_divisao (valor1, valor2)
 
         }
 
-        return `O resto inteiro da divisão entre ${valor1} e ${valor2} é: ${resto_inteiro}`;
+        return `O resto inteiro da divisão entre ${valor1.toFixed(2)} e ${valor2.toFixed(2)} é: ${resto_inteiro}`;
 
     }
 
@@ -141,10 +141,9 @@ function raiz_quadrada(numero)
 
     }
 
-    return `A raiz quadrada de ${numero} é ${resultado_raiz_quadrada}`;
+    return `A raiz quadrada de ${numero.toFixed(2)} é ${resultado_raiz_quadrada.toFixed(.2)}`;
 
 }
-
 
 function numero_primo(numero)
 {
@@ -489,8 +488,9 @@ function celsius_fahrenheit(temperatura)
 
 function calculo_imc(peso, altura)
 {
+    let imc = peso / altura ** 2
 
-    return peso / altura ** 2;
+    return imc.toFixed(2);
 
 }
 
@@ -499,6 +499,8 @@ function calculo_tmb(peso, altura, idade, genero)
 {
 
     const lista_generos = ['Masculino', 'masculino', 'Feminino', 'feminino'];
+
+    let tmb = 0;
 
     if (lista_generos.includes(genero, 0) === false)
     {
@@ -512,13 +514,16 @@ function calculo_tmb(peso, altura, idade, genero)
         if (genero === 'Masculino' || genero === 'masculino')
         {
 
-            return (10 * peso) + (6.25 * altura) - (5 * idade) + 5;
+            tmb = (10 * peso) + (6.25 * altura) - (5 * idade) + 5;
+
+            return tmb.toFixed(2);
 
         }
         else if (genero === 'Feminino' || genero === 'feminino')
         {
+            tmb = (10 * peso) + (6.25 * altura) - (5 * idade) - 161;
 
-            return (10 * peso) + (6.25 * altura) - (5 * idade) - 161;
+            return tmb.toFixed(2);
 
         }
 
