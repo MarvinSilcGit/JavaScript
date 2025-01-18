@@ -64,8 +64,3 @@ function grados_graus(valor)
 
     return `${grados.toFixed(2)}° Grados equivalem à ${graus.toFixed(2)}° Graus`;
 }
-
-for (let contador = 1; contador < 10; contador++)
-{
-    console.log(grados_graus(contador));
-}
