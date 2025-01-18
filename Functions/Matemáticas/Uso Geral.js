@@ -58,6 +58,7 @@ function resto_divisao(dividendo, divisor)
         }
 
         return `O resto da divisão entre ${numero1.toFixed(1)} e ${numero2.toFixed(1)} é: ${resto.toFixed(1)}`;
+
     }
 
 }
@@ -468,6 +469,7 @@ function calculo_fatorial(numero)
     }
 
     return resultado_fatorial;
+
 }
 
 
