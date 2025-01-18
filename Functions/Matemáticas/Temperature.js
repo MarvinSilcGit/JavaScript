@@ -109,7 +109,7 @@ function rankine_fahrenheit(valor)
 
     const temperatura_fahrenheit = temperatura_rankine - 459.67;
 
-    return `A temperatura em ${temperatura_rankine.toFixed(1)}° Rankine equivale à ${temperatura_fahrenheit.toFixed(1)}° Fahrenheit`
+    return `A temperatura em ${temperatura_rankine.toFixed(1)}° Rankine equivale à ${temperatura_fahrenheit.toFixed(1)}° Fahrenheit`;
 
 }
 
@@ -120,7 +120,7 @@ function rankine_celsius(valor)
 
     const temperatura_celsius = (temperatura_rankine - 491.67) * 5 / 9;
 
-    return `A temperatura em ${temperatura_rankine.toFixed(1)}° Rankine equivale à ${temperatura_celsius.toFixed(1)}° Celsius`
+    return `A temperatura em ${temperatura_rankine.toFixed(1)}° Rankine equivale à ${temperatura_celsius.toFixed(1)}° Celsius`;
 }
 
 
@@ -131,6 +131,6 @@ function rankine_kelvin(valor)
 
     const temperatura_kelvin = temperatura_rankine * 5 / 9;
 
-    return `A temperatura em ${temperatura_rankine.toFixed(1)}° Rankine equivale à ${temperatura_kelvin.toFixed(1)}° Kelvin`
+    return `A temperatura em ${temperatura_rankine.toFixed(1)}° Rankine equivale à ${temperatura_kelvin.toFixed(1)}° Kelvin`;
 
 }
