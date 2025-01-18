@@ -275,7 +275,7 @@ function palindromo(valor)
         for (let contador1 = 0; contador1 < valor.length; contador1++)
         {
 
-            if (valor[contador1] === valor[- 1 - contador1])
+            if (valor[contador1] === valor.at(-1 - contador1))
             {
 
                 contador2 += 1
@@ -301,7 +301,6 @@ function palindromo(valor)
     }
 
 }
-console.log(palindromo('121'))
 
 
 function atm_machine(valor)
@@ -440,7 +439,7 @@ function atm_machine(valor)
 }
 
 // Acessar Valores
-/*for (let contador = 1; contador < 20+1; contador++)
+/*for (let contador = 1; contador < 20 + 1; contador++)
 {
 
     for (let contador2 of atm_machine(contador))
@@ -451,7 +450,6 @@ function atm_machine(valor)
 
 }
 console.log(atm_machine(16));*/
-
 
 function calculo_fatorial(numero)
 {
