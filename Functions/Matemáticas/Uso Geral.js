@@ -1,9 +1,13 @@
-function resto_divisao(valor1, valor2)
+function resto_divisao(dividendo, divisor)
 {
+
+    const numero1 = parseFloat(dividendo);
+
+    const numero2 = parseFloat(divisor);
 
     let resto = 0;
 
-    if (valor1 === 0 || valor2 === 0)
+    if (numero1 === 0 || numero2 === 0)
     {
 
         return "Divisão por zero inválida";
@@ -13,38 +17,38 @@ function resto_divisao(valor1, valor2)
     else
     {
 
-        if (valor1 === valor2)
+        if (numero1 === numero2)
         {
 
             resto = 0;
 
         }
 
-        else if (valor1 > valor2)
+        else if (numero1 > numero2)
         {
 
-            while (valor2 + resto <= valor1)
+            while (numero2 + resto <= numero1)
             {
 
-                resto += valor2;
+                resto += numero2;
 
             }
 
-            resto = valor1 - resto;
+            resto = numero1 - resto;
 
         }
 
         else
         {
 
-            while (valor1 + resto < valor2)
+            while (numero1 + resto < numero2)
             {
 
-                resto +=valor1;
+                resto +=numero1;
 
             }
 
-            while (resto !== valor2)
+            while (resto !== numero2)
             {
 
                 resto += 1;
@@ -53,20 +57,24 @@ function resto_divisao(valor1, valor2)
 
         }
 
-        return `O resto da divisão entre ${valor1.toFixed(1)} e ${valor2.toFixed(1)} é: ${resto.toFixed(2)}`;
+        return `O resto da divisão entre ${numero1.toFixed(1)} e ${numero2.toFixed(1)} é: ${resto.toFixed(1)}`;
     }
 
 }
 
 
-function resto_inteiro_divisao (valor1, valor2)
+function resto_inteiro_divisao (dividendo, divisor)
 {
+
+    const numero1 = parseFloat(dividendo);
+
+    const numero2 = parseFloat(divisor);
 
     let resto_inteiro = 0;
 
     let resto = 0;
 
-    if (valor1 === 0 || valor2 === 0)
+    if (numero1 === 0 || numero2 === 0)
     {
 
         return 'Divisão por zero é inválida';
@@ -76,22 +84,22 @@ function resto_inteiro_divisao (valor1, valor2)
     else
     {
 
-        if (valor1 === valor2)
+        if (numero1 === numero2)
         {
 
             resto_inteiro = 1
 
         }
 
-        else if (valor1 > valor2)
+        else if (numero1 > numero2)
         {
 
-            while (valor2 + resto <= valor1)
+            while (numero2 + resto <= numero1)
             {
 
                 resto_inteiro += 1;
 
-                resto += valor2
+                resto += numero2
 
             }
 
@@ -100,14 +108,14 @@ function resto_inteiro_divisao (valor1, valor2)
         else
         {
 
-            while (valor1 + resto < valor2)
+            while (numero1 + resto < numero2)
             {
 
-                resto += valor1;
+                resto += numero1;
 
             }
 
-            while (resto !== valor2)
+            while (resto !== numero2)
             {
 
                 resto += 1;
@@ -116,15 +124,17 @@ function resto_inteiro_divisao (valor1, valor2)
 
         }
 
-        return `O resto inteiro da divisão entre ${valor1.toFixed(2)} e ${valor2.toFixed(2)} é: ${resto_inteiro}`;
+        return `O resto inteiro da divisão entre ${numero1.toFixed(2)} e ${numero2.toFixed(2)} é: ${resto_inteiro}`;
 
     }
 
 }
 
 
-function raiz_quadrada(numero)
+function raiz_quadrada(valor)
 {
+
+    const numero = parseFloat(valor);
 
     let base = 2;
 
@@ -141,12 +151,15 @@ function raiz_quadrada(numero)
 
     }
 
-    return `A raiz quadrada de ${numero.toFixed(2)} é ${resultado_raiz_quadrada.toFixed(.2)}`;
+    return `A raiz quadrada aproximada de ${numero.toFixed(2)} é ${resultado_raiz_quadrada.toFixed(2)}`;
 
 }
 
-function numero_primo(numero)
+
+function numero_primo(valor)
 {
+
+    const numero = parseInt(valor)
 
     let confirmacao = 2;
 
@@ -222,8 +235,10 @@ function numero_primo(numero)
 }
 
 
-function numero_par_impar(numero)
+function numero_par_impar(valor)
 {
+
+    const numero = parseInt(valor)
 
     if (numero % 2 === 0)
     {
@@ -242,7 +257,7 @@ function numero_par_impar(numero)
 }
 
 
-function valor_palindromo(valor)
+function palindromo(valor)
 {
 
     let contador2 = 0;
@@ -257,10 +272,10 @@ function valor_palindromo(valor)
     else
     {
 
-        for (let contador1 = 0; valor.length; contador1++)
+        for (let contador1 = 0; contador1 < valor.length; contador1++)
         {
 
-            if (valor[contador1] === valor[-1 - contador1])
+            if (valor[contador1] === valor[- 1 - contador1])
             {
 
                 contador2 += 1
@@ -286,6 +301,7 @@ function valor_palindromo(valor)
     }
 
 }
+console.log(palindromo('121'))
 
 
 function atm_machine(valor)
@@ -464,25 +480,6 @@ function raio_circulo(area)
 
     return area;
 
-}
-
-
-function fahrenheit_celsius(temperatura)
-{
-
-    let celsius = (temperatura - 32) / 1.8;
-
-    return `A temperatura em ${temperatura.toFixed(1)}° fahrenheit equivale à ${celsius.toFixed(1)}° celsius`;
-
-}
-
-
-function celsius_fahrenheit(temperatura)
-{
-
-    let fahrenheit = (temperatura * 1.8) + 32;
-
-    return `A temperatura em ${temperatura.toFixed(1)}° celsius equivale à ${fahrenheit.toFixed(1)}° fahrenheit`;
 }
 
 
