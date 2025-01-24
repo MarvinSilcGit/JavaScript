@@ -798,7 +798,7 @@ function validade_cpf(cpf)
 
             contador--;
 
-            if (contador === 0)
+            if (contador === 1)
             {
                 break
             }
@@ -873,9 +873,6 @@ function validade_cpf(cpf)
 
         cpf = [...cpf]
 
-        console.log(posicao_j);
-        console.log(cpf[9]);
-
         if (posicao_j === cpf[9] && posicao_k === cpf[10])
         {
 
@@ -887,15 +884,12 @@ function validade_cpf(cpf)
 
                     cpf.splice(contador3, 0, '.');
 
-                    console.log('s')
-
                 }
 
                 else if (contador3 === 7)
                 {
 
                     cpf.splice(contador3, 0, '.');
-                     console.log('2')
 
                 }
 
@@ -903,7 +897,7 @@ function validade_cpf(cpf)
                 {
 
                     cpf.splice(contador3, 0, '-');
-                     console.log('z')
+
                 }
 
             }
@@ -918,4 +912,4 @@ function validade_cpf(cpf)
 
 }
 
-console.log(validade_cpf('86706209520'))
+
