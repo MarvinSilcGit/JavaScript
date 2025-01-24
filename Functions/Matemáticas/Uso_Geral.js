@@ -908,7 +908,7 @@ function validade_cpf(cpf)
 
     }
 
-    return `O CPF ${cpf} é valido, sendo emitido em: ${dicionario_estados[estado]}`
+    return `O CPF ${cpf} é válido, sendo emitido em: ${dicionario_estados[estado]}`
 
 }
 
