@@ -160,7 +160,7 @@ function raiz_quadrada(valor)
 function numero_primo(valor)
 {
 
-    const numero = parseInt(valor)
+    const numero = parseInt(valor, 10)
 
     let confirmacao = 2;
 
@@ -239,7 +239,7 @@ function numero_primo(valor)
 function numero_par_impar(valor)
 {
 
-    const numero = parseInt(valor)
+    const numero = parseInt(valor, 10)
 
     if (numero % 2 === 0)
     {
@@ -750,5 +750,131 @@ function juros_compostos(valor_inicial, aporte_mensal, juros_anual, quantidade_m
     }
 
     return ''
+
+}
+
+
+function validade_cpf(cpf)
+{
+
+    if (cpf.length !== 11)
+    {
+
+        return 'CPF inválido';
+
+    }
+
+    else
+    {
+
+        const dicionario_estados = {"0": "Bahia", "1": "Distrido Federal, Goiás, Mato Grosso do Sul ou Tocantins", "2": "Pará, Amazonas, Acre, Amapá, Rondônio ou Roraíma",
+                              "3": "Ceará, Maranhão ou Piauí",
+                              "4": "Pernambuco, Rio Grande do Norte, Paraíba ou Alagoas", "5": "Bahia ou Sergipe", "6": "Minas Gerais",
+                              "7": "Rio de Janeiro ou Espírito Santo", "8": "São Paulo",
+                              "9":"Paraná ou Santa Catarina"}
+
+
+        let resultado_posicao_j = 0;
+
+        let resultador_posicao_k = 0;
+
+        let contador = 0;
+
+        let estado = cpf[8]
+
+        let posicao_j = 0;
+
+        let posicao_k = 0;
+
+        for (let contador2 = 0; contador2 < 9; contador2++)
+        {
+
+            for (let cont of cpf)
+            {
+
+                console.log(cont)
+            }
+
+            resultado_posicao_j += resultado_posicao_j.parseInt(cpf[contador2],10) * contador;
+
+            contador--
+
+        }
+
+        if (resultado_posicao_j % 11 < 2)
+        {
+
+            posicao_j = 0;
+
+
+        }
+
+        else if (resultado_posicao_j % 11 >= 2 && resultado_posicao_j % 11 <=10)
+        {
+
+            posicao_j = 11 - resultado_posicao_j % 11;
+
+        }
+
+        else
+        {
+
+            return 'CPF inválido';
+
+        }
+
+        contador = 11;
+
+        for (let contador2 = 0; contador2 < 10; contador2++)
+        {
+
+            resultador_posicao_k += resultador_posicao_k.parseInt(cpf[contador2]) * contador;
+
+            contador--;
+
+        }
+
+        if (resultador_posicao_k % 11 < 2)
+        {
+
+            posicao_k = 0;
+
+        }
+
+        else if (resultador_posicao_k % 11 >= 2 && resultador_posicao_k % 11 <=10)
+        {
+
+            posicao_k = 11 - resultador_posicao_k % 11;
+
+        }
+
+        else
+        {
+
+            return 'CPF inválido';
+
+        }
+
+        posicao_j.toString();
+
+        posicao_k.toString();
+
+        cpf = [...cpf]
+
+        console.log(cpf);
+
+
+    }
+
+}
+
+//console.log(validade_cpf('06288231509'))
+
+let cpf = ['a', '1', 3, 4, 5, 1];
+
+for (let cont of cpf)
+{
+
+    console.log(cont)
 
 }
