@@ -20,3 +20,11 @@ function cv_kw(valor)
     return `${kw.toFixed(2)} Cavalos equivalem à ${cv.toFixed(2)} Kilowatts`;
 
 }
+
+
+function consumo_aparelho(volts, amperes)
+{
+
+    return `Com ${volts.toFixed(2)}v e ${amperes.toFixed(2)}A, a potência máxima será ${volts * amperes.toFixed(2)} Watts`;
+
+}
