@@ -913,3 +913,104 @@ function validade_cpf(cpf)
 }
 
 
+function validade_cnpj(cnpj)
+{
+
+    let cnpj_validade = cnpj;
+
+    let resultado_posicao_x_1 = 0;
+
+    let resultado_posicao_x_2 = 0;
+
+    let posicao_x_1 = 0;
+
+    let posicao_x_2 = 0;
+
+    let contador = 5;
+
+    for (let contador2 of cnpj_validade)
+    {
+
+        contador++;
+
+        posicao_x_1 = parseInt(contador2, 10);
+
+        resultado_posicao_x_1 += posicao_x_1 * contador;
+
+        if (contador === 9)
+        {
+
+            contador = 1;
+
+        }
+
+    }
+
+    cnpj_validade += resultado_posicao_x_1 % 11;
+
+    contador = 4;
+
+    for (let contador2 of cnpj_validade)
+    {
+
+        contador++;
+
+        posicao_x_2 = parseInt(contador2, 10);
+
+        resultado_posicao_x_2 += posicao_x_2 * contador;
+
+        if (contador === 9)
+        {
+
+            contador = 1;
+
+        }
+
+    }
+
+    cnpj_validade += resultado_posicao_x_2 % 11;
+
+    console.log(cnpj_validade)
+
+    cnpj_validade = [... cnpj_validade]
+
+    for (let contador3 = 0; contador3 < 18; contador3++)
+    {
+
+        if (contador3 === 2)
+        {
+
+            cnpj_validade.splice(contador3, 0, '.');
+
+        }
+
+        else if (contador3 === 6)
+        {
+
+            cnpj_validade.splice(contador3, 0, '.');
+
+        }
+
+        else if (contador3 === 10)
+        {
+
+            cnpj_validade.splice(contador3, 0, '/');
+
+        }
+
+        else if (contador3 === 15)
+        {
+
+            cnpj_validade.splice(contador3, 0, '-')
+
+        }
+
+    }
+
+    cnpj_validade = cnpj_validade.join('')
+
+    return cnpj_validade
+
+}
+
+console.log(validade_cnpj('977933030001'));
