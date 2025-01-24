@@ -757,6 +757,26 @@ function juros_compostos(valor_inicial, aporte_mensal, juros_anual, quantidade_m
 function validade_cpf(cpf)
 {
 
+    const dicionario_estados = {"1": "Distrido Federal, Goiás, Mato Grosso do Sul ou Tocantins", "2": "Pará, Amazonas, Acre, Amapá, Rondônio ou Roraíma",
+                              "3": "Ceará, Maranhão ou Piauí",
+                              "4": "Pernambuco, Rio Grande do Norte, Paraíba ou Alagoas", "5": "Bahia ou Sergipe", "6": "Minas Gerais",
+                              "7": "Rio de Janeiro ou Espírito Santo", "8": "São Paulo",
+                              "9":"Paraná ou Santa Catarina"}
+
+    let resultado_posicao_j = 0;
+
+        let resultado_posicao_k = 0;
+
+
+
+        let estado = cpf[8]
+
+        let posicao_j = 0;
+
+        let posicao_k = 0;
+
+        let resultado_cpf = 0;
+
     if (cpf.length !== 11)
     {
 
@@ -767,37 +787,21 @@ function validade_cpf(cpf)
     else
     {
 
-        const dicionario_estados = {"0": "Bahia", "1": "Distrido Federal, Goiás, Mato Grosso do Sul ou Tocantins", "2": "Pará, Amazonas, Acre, Amapá, Rondônio ou Roraíma",
-                              "3": "Ceará, Maranhão ou Piauí",
-                              "4": "Pernambuco, Rio Grande do Norte, Paraíba ou Alagoas", "5": "Bahia ou Sergipe", "6": "Minas Gerais",
-                              "7": "Rio de Janeiro ou Espírito Santo", "8": "São Paulo",
-                              "9":"Paraná ou Santa Catarina"}
+        let contador = 10;
 
-
-        let resultado_posicao_j = 0;
-
-        let resultador_posicao_k = 0;
-
-        let contador = 0;
-
-        let estado = cpf[8]
-
-        let posicao_j = 0;
-
-        let posicao_k = 0;
-
-        for (let contador2 = 0; contador2 < 9; contador2++)
+        for (let contador2 of cpf)
         {
 
-            for (let cont of cpf)
+            resultado_cpf = parseInt(contador2, 10)
+
+            resultado_posicao_j += resultado_cpf * contador;
+
+            contador--;
+
+            if (contador === 0)
             {
-
-                console.log(cont)
+                break
             }
-
-            resultado_posicao_j += resultado_posicao_j.parseInt(cpf[contador2],10) * contador;
-
-            contador--
 
         }
 
@@ -806,13 +810,12 @@ function validade_cpf(cpf)
 
             posicao_j = 0;
 
-
         }
 
         else if (resultado_posicao_j % 11 >= 2 && resultado_posicao_j % 11 <=10)
         {
 
-            posicao_j = 11 - resultado_posicao_j % 11;
+            posicao_j = 11 - (resultado_posicao_j % 11);
 
         }
 
@@ -825,26 +828,35 @@ function validade_cpf(cpf)
 
         contador = 11;
 
-        for (let contador2 = 0; contador2 < 10; contador2++)
+        for (let contador2 of cpf)
         {
 
-            resultador_posicao_k += resultador_posicao_k.parseInt(cpf[contador2]) * contador;
+            resultado_cpf = parseInt(contador2, 10);
+
+            resultado_posicao_k += resultado_cpf * contador;
 
             contador--;
 
+            if (contador === 1)
+            {
+
+                break;
+
+            }
+
         }
 
-        if (resultador_posicao_k % 11 < 2)
+        if (resultado_posicao_k % 11 < 2)
         {
 
             posicao_k = 0;
 
         }
 
-        else if (resultador_posicao_k % 11 >= 2 && resultador_posicao_k % 11 <=10)
+        else if (resultado_posicao_k % 11 >= 2 && resultado_posicao_k % 11 <=10)
         {
 
-            posicao_k = 11 - resultador_posicao_k % 11;
+            posicao_k = 11 - (resultado_posicao_k % 11);
 
         }
 
@@ -855,26 +867,55 @@ function validade_cpf(cpf)
 
         }
 
-        posicao_j.toString();
+        posicao_j = posicao_j.toString();
 
-        posicao_k.toString();
+        posicao_k = posicao_k.toString();
 
         cpf = [...cpf]
 
-        console.log(cpf);
+        console.log(posicao_j);
+        console.log(cpf[9]);
 
+        if (posicao_j === cpf[9] && posicao_k === cpf[10])
+        {
+
+            for (let contador3 = 0; contador3 < 14; contador3++)
+            {
+
+                if (contador3 === 3)
+                {
+
+                    cpf.splice(contador3, 0, '.');
+
+                    console.log('s')
+
+                }
+
+                else if (contador3 === 7)
+                {
+
+                    cpf.splice(contador3, 0, '.');
+                     console.log('2')
+
+                }
+
+                else if (contador3 === 11)
+                {
+
+                    cpf.splice(contador3, 0, '-');
+                     console.log('z')
+                }
+
+            }
+
+        }
+
+        cpf = cpf.join('')
 
     }
 
-}
-
-//console.log(validade_cpf('06288231509'))
-
-let cpf = ['a', '1', 3, 4, 5, 1];
-
-for (let cont of cpf)
-{
-
-    console.log(cont)
+    return `O CPF ${cpf} é valido, sendo emitido em: ${dicionario_estados[estado]}`
 
 }
+
+console.log(validade_cpf('86706209520'))
