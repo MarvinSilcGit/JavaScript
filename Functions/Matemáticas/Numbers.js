@@ -1,237 +1,196 @@
-function resto_divisao(dividendo, divisor)
-{
+function resto_divisao(dividendo, divisor) {
 
-    const numero1 = parseFloat(dividendo);
+  const numero1 = parseFloat(dividendo);
 
-    const numero2 = parseFloat(divisor);
+  const numero2 = parseFloat(divisor);
 
-    let resto = 0;
+  let resto = 0;
 
-    if (numero1 === 0 || numero2 === 0)
-    {
+  if (numero1 === 0 || numero2 === 0) {
 
-        return "Divisão por zero inválida";
+      return "Divisão por zero inválida";
 
-    }
+  }
 
-    else
-    {
+  else
+  {
 
-        if (numero1 === numero2)
-        {
+    if (numero1 === numero2) {
 
-            resto = 0;
+        resto = 0;
 
-        }
+    } else if (numero1 > numero2) {
 
-        else if (numero1 > numero2)
-        {
+      while (numero2 + resto <= numero1) {
 
-            while (numero2 + resto <= numero1)
-            {
+        resto += numero2;
 
-                resto += numero2;
+      }
 
-            }
-
-            resto = numero1 - resto;
-
-        }
-
-        else
-        {
-
-            while (numero1 + resto < numero2)
-            {
-
-                resto +=numero1;
-
-            }
-
-            while (resto !== numero2)
-            {
-
-                resto += 1;
-
-            }
-
-        }
-
-        return `O resto da divisão entre ${numero1.toFixed(1)} e ${numero2.toFixed(1)} é: ${resto.toFixed(1)}`;
-
-    }
-
-}
-
-
-function resto_inteiro_divisao (dividendo, divisor)
-{
-
-    const numero1 = parseFloat(dividendo);
-
-    const numero2 = parseFloat(divisor);
-
-    let resto_inteiro = 0;
-
-    let resto = 0;
-
-    if (numero1 === 0 || numero2 === 0)
-    {
-
-        return 'Divisão por zero é inválida';
+      resto = numero1 - resto;
 
     }
 
     else
     {
 
-        if (numero1 === numero2)
-        {
+      while (numero1 + resto < numero2) {
 
-            resto_inteiro = 1
+        resto +=numero1;
 
-        }
+      }
 
-        else if (numero1 > numero2)
-        {
+      while (resto !== numero2) {
 
-            while (numero2 + resto <= numero1)
-            {
+          resto += 1;
 
-                resto_inteiro += 1;
-
-                resto += numero2
-
-            }
-
-        }
-
-        else
-        {
-
-            while (numero1 + resto < numero2)
-            {
-
-                resto += numero1;
-
-            }
-
-            while (resto !== numero2)
-            {
-
-                resto += 1;
-
-            }
-
-        }
-
-        return `O resto inteiro da divisão entre ${numero1.toFixed(2)} e ${numero2.toFixed(2)} é: ${resto_inteiro}`;
+      }
 
     }
+
+    return `O resto da divisão entre ${numero1.toFixed(1)} e ${numero2.toFixed(1)} é: ${resto.toFixed(1)}`;
+
+  }
 
 }
 
 
-function raiz_quadrada(valor)
-{
+function resto_inteiro_divisao (dividendo, divisor) {
 
-    const numero = parseFloat(valor);
+  const numero1 = parseFloat(dividendo);
 
-    let base = 2;
+  const numero2 = parseFloat(divisor);
 
-    let resultado_raiz_quadrada = (base + numero / base) / 2;
+  let resto_inteiro = 0;
 
-    resultado_raiz_quadrada = resultado_raiz_quadrada ** 2;
+  let resto = 0;
 
-    while (resultado_raiz_quadrada * resultado_raiz_quadrada -  numero > 0.001)
-    {
+  if (numero1 === 0 || numero2 === 0) {
 
-        base = resultado_raiz_quadrada;
+    return 'Divisão por zero é inválida';
 
-        resultado_raiz_quadrada = (base + numero / base) / 2;
+  }
+
+  else {
+
+    if (numero1 === numero2) {
+
+        resto_inteiro = 1
+
+    } else if (numero1 > numero2) {
+
+      while (numero2 + resto <= numero1) {
+
+        resto_inteiro += 1;
+
+        resto += numero2
+
+      }
+
+    } else {
+
+      while (numero1 + resto < numero2) {
+
+        resto += numero1;
+
+      }
+
+      while (resto !== numero2) {
+
+        resto += 1;
+
+      }
 
     }
 
-    return `A raiz quadrada aproximada de ${numero.toFixed(2)} é ${resultado_raiz_quadrada.toFixed(2)}`;
+    return `O resto inteiro da divisão entre ${numero1.toFixed(2)} e ${numero2.toFixed(2)} é: ${resto_inteiro}`;
+
+  }
 
 }
 
 
-function numero_primo(valor)
-{
+function raiz_quadrada(valor) {
 
-    const numero = parseInt(valor, 10)
+  const numero = parseFloat(valor);
 
-    let confirmacao = 2;
+  let base = 2;
 
-    if (numero === 0 || numero === 1)
-    {
+  let resultado_raiz_quadrada = (base + numero / base) / 2;
 
-        return 'Esse número é inválido';
+  resultado_raiz_quadrada = resultado_raiz_quadrada ** 2;
 
-    }
+  while (resultado_raiz_quadrada * resultado_raiz_quadrada -  numero > 0.001) {
 
-    if (numero === 3 || numero === 2)
-    {
+    base = resultado_raiz_quadrada;
 
-        return `${numero} é um número primo`;
+    resultado_raiz_quadrada = (base + numero / base) / 2;
 
-    }
+  }
 
-    else
-    {
+  return `A raiz quadrada aproximada de ${numero.toFixed(2)} é ${resultado_raiz_quadrada.toFixed(2)}`;
 
-        for (let contador = confirmacao; contador < numero + 1; contador++)
-        {
+}
 
-            if (numero % contador !== 0)
-            {
 
-                confirmacao += 1;
+function numero_primo(valor) {
 
-            }
+  const numero = parseInt(valor, 10)
 
-        }
+  let confirmacao = 2;
 
-        if (confirmacao === numero)
-        {
+  if (numero === 0 || numero === 1) {
 
-            return `${numero} é um número primo, pois ele é divisível somente por ele e por 1`;
+      return 'Esse número é inválido';
 
-        }
+  }
 
-        else
-        {
-            process.stdout.write(`O número ${numero} não é primo, pois ele é divisível por: `);
+  if (numero === 3 || numero === 2) {
 
-            for (let contador = 1; contador < numero + 1; contador++)
-            {
+      return `${numero} é um número primo`;
 
-                if (numero % contador === 0)
-                {
+  } else {
 
-                    if (numero - contador === 0)
-                    {
+    for (let contador = confirmacao; contador < numero + 1; contador++) {
 
-                        process.stdout.write(`${contador} `);
+        if (numero % contador !== 0) {
 
-                    }
-
-                    else
-                    {
-
-                        process.stdout.write(`${contador}, `);
-
-                    }
-
-                }
-            }
-
-            return '';
+            confirmacao += 1;
 
         }
 
     }
+
+    if (confirmacao === numero) {
+
+        return `${numero} é um número primo, pois ele é divisível somente por ele e por 1`;
+
+    } else {
+      process.stdout.write(`O número ${numero} não é primo, pois ele é divisível por: `);
+
+      for (let contador = 1; contador < numero + 1; contador++) {
+
+        if (numero % contador === 0) {
+
+          if (numero - contador === 0) {
+
+            process.stdout.write(`${contador} `);
+
+          } else {
+
+            process.stdout.write(`${contador}, `);
+
+          }
+
+        }
+
+      }
+
+      return '';
+
+    }
+
+  }
 
 }
 
@@ -239,42 +198,36 @@ function numero_primo(valor)
 function numero_par_impar(valor)
 {
 
-    const numero = parseInt(valor, 10)
+  const numero = parseInt(valor, 10)
 
-    if (numero % 2 === 0)
-    {
+  if (numero % 2 === 0) {
 
-        return `O número ${numero} é par`;
+    return `O número ${numero} é par`;
 
-    }
+  } else {
 
-    else
-    {
+    return `O número ${numero} é ímpar`;
 
-        return `O número ${numero} é ímpar`;
-
-    }
+  }
 
 }
 
 
-function calculo_fatorial(numero)
-{
+function calculo_fatorial(numero) {
 
-    let resultado_fatorial = numero;
+  let resultado_fatorial = numero;
 
-    let contador = numero;
+  let contador = numero;
 
-    while (contador !== 1)
-    {
+  while (contador !== 1) {
 
-        resultado_fatorial *= contador - 1;
+    resultado_fatorial *= contador - 1;
 
-        contador--;
+    contador--;
 
-    }
+  }
 
-    return resultado_fatorial;
+  return resultado_fatorial;
 
 }
 
@@ -282,176 +235,142 @@ function calculo_fatorial(numero)
 function ano_bissexto(ano)
 {
 
-    if (ano % 4 === 0)
-    {
+  if (ano % 4 === 0) {
 
-        if (ano % 100 !== 0)
-        {
+    if (ano % 100 !== 0) {
 
-            return `O ano ${ano} é bissexto`;
+      return `O ano ${ano} é bissexto`;
 
-        }
+    } else if (ano % 100 === 0) {
 
-        else if (ano % 100 === 0)
-        {
-
-            return `O ano ${ano} é bissexto especial`;
-
-        }
+      return `O ano ${ano} é bissexto especial`;
 
     }
 
-    else
-    {
-        return `O ano ${ano} não é bissexto`
+  } else {
 
-    }
+    return `O ano ${ano} não é bissexto`
+
+  }
 
 }
 
 
-function numero_decimal_inteiro(numero)
-{
+function numero_decimal_inteiro(numero) {
 
-    let numero_inteiro = Math.trunc(numero);
+  let numero_inteiro = Math.trunc(numero);
 
-    if (numero > numero_inteiro)
-    {
+  if (numero > numero_inteiro) {
 
-        return `O número ${numero} é decimal`;
+    return `O número ${numero} é decimal`;
 
-    }
+  } else {
 
-    else
-    {
+    if (numero.includes('.')) {
 
-        if (numero.includes('.'))
-        {
-            return `O número ${numero} é decimal`;
-        }
+      return `O número ${numero} é decimal`;
 
-        else
-        {
+    } else {
 
-            return `O número ${numero} não é decimal`;
-
-        }
+      return `O número ${numero} não é decimal`;
 
     }
+
+  }
 
 }
 
 
-function numero_fizz_buzz(numero)
-{
+function numero_fizz_buzz(numero) {
 
-    if (numero <= 0)
-    {
+  if (numero <= 0) {
 
-        return 'Número menores que 1 não são válidos';
+    return 'Número menores que 1 não são válidos';
 
-    }
+  }
 
-    if (numero % 3 === 0 && numero % 5 === 0 && numero !== 0)
-    {
+  if (numero % 3 === 0 && numero % 5 === 0 && numero !== 0) {
 
-        return `O número ${numero} é FizzBuzz`;
+    return `O número ${numero} é FizzBuzz`;
 
-    }
+  }
 
-    else if (numero % 3 === 0)
-    {
+  else if (numero % 3 === 0) {
 
-        return `O número ${numero} é Fizz`;
+    return `O número ${numero} é Fizz`;
 
-    }
+  } else if (numero % 5 === 0) {
 
-    else if (numero % 5 === 0)
-    {
+    return `O número ${numero} é Buzz`;
 
-        return `O número ${numero} é Buzz`;
+  } else {
 
-    }
+    return `O número ${numero} não é nem Fizz ou nem Buzz`;
 
-    else
-    {
-
-        return `O número ${numero} não é nem Fizz ou nem Buzz`;
-
-    }
+  }
 
 }
 
 
-function binary_decimal(numero)
-{
+function binary_decimal(numero) {
 
-    let tamanho_decimal = numero.length;
+  let tamanho_decimal = numero.length;
 
-    let decimal = 0;
+  let decimal = 0;
 
-    let expoente = tamanho_decimal - 1;
+  let expoente = tamanho_decimal - 1;
 
-    for (let contador of numero)
-    {
+  for (let contador of numero) {
 
-        if (contador === "1")
-        {
+    if (contador === "1") {
 
-            decimal += (2 ** expoente);
-
-        }
-
-        else if (contador === "0")
-        {
-
-            decimal += 0;
-
-        }
-
-        else
-        {
-
-            return 'Esse número não é binário';
-
-        }
-
-        expoente--;
-
-        numero = parseInt(numero);
+      decimal += (2 ** expoente);
 
     }
 
-    return `${decimal}`;
+    else if (contador === "0") {
+
+      decimal += 0;
+
+    } else {
+
+        return 'Esse número não é binário';
+
+    }
+
+    expoente--;
+
+    numero = parseInt(numero);
+
+  }
+
+  return `${decimal}`;
 
 }
 
 
-function decimal_binary(numero)
-{
+function decimal_binary(numero) {
 
-    let resto = [];
+  let resto = [];
 
-    let numero_decimal = parseInt(numero);
+  let numero_decimal = parseInt(numero);
 
-    while (numero_decimal !== 0)
-    {
+  while (numero_decimal !== 0) {
 
-        resto.unshift(numero_decimal % 2);
+    resto.unshift(numero_decimal % 2);
 
-        numero_decimal = Math.floor(numero_decimal / 2);
+    numero_decimal = Math.floor(numero_decimal / 2);
 
-    }
+  }
 
-    resto = resto.join('');
+  resto = resto.join('');
 
-    return `${resto}`;
+  return `${resto}`;
 
 }
 
 
-function equacao_segundo_grau_bhaskara()
-{
+function equacao_segundo_grau_bhaskara() {
 
 
 

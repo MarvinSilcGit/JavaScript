@@ -1,5 +1,4 @@
-function kw_cv(valor)
-{
+function kw_cv(valor) {
 
     const kw = parseFloat(valor)
 
@@ -10,8 +9,7 @@ function kw_cv(valor)
 }
 
 
-function cv_kw(valor)
-{
+function cv_kw(valor) {
 
     const cv = parseFloat(valor);
 
@@ -22,8 +20,7 @@ function cv_kw(valor)
 }
 
 
-function consumo_aparelho(volts, amperes)
-{
+function consumo_aparelho(volts, amperes) {
 
     return `Com ${volts.toFixed(2)}v e ${amperes.toFixed(2)}A, a potência máxima será ${volts * amperes.toFixed(2)} Watts`;
 

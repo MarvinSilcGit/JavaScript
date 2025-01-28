@@ -173,25 +173,20 @@ function calculo_tmb(peso, altura, idade, genero) {
 
   let tmb = 0;
 
-  if (lista_generos.includes(genero, 0) === false)
-  {
+  if (lista_generos.includes(genero, 0) === false) {
+
     return 'Gênero inválido';
 
-  }
+  } else {
 
-  else
-  {
-
-    if (genero === 'Masculino' || genero === 'masculino')
-      {
+    if (genero === 'Masculino' || genero === 'masculino') {
 
         tmb = (10 * peso) + (6.25 * altura) - (5 * idade) + 5;
 
         return tmb.toFixed(2);
 
-      }
-      else if (genero === 'Feminino' || genero === 'feminino')
-      {
+      } else if (genero === 'Feminino' || genero === 'feminino') {
+
         tmb = (10 * peso) + (6.25 * altura) - (5 * idade) - 161;
 
         return tmb.toFixed(2);
@@ -205,42 +200,27 @@ function calculo_tmb(peso, altura, idade, genero) {
 
 function triangulo_validade_tipo(lado1, lado2, lado3) {
 
-  if (lado1 <= 0 || lado2 <= 0 || lado3 <= 0)
-  {
+  if (lado1 <= 0 || lado2 <= 0 || lado3 <= 0) {
 
     return 'Um triângulo naõ poder ter lado 0';
 
-  }
+  } else {
 
-  else
-  {
-
-    if (lado1 + lado2 <= lado3)
-    {
+    if (lado1 + lado2 <= lado3) {
 
       return 'A somas desse lados não forma um triângulo';
 
-    }
+    } else {
 
-    else
-    {
-
-      if (lado1 === lado2 && lado2 === lado3 && lado1 === lado3)
-      {
+      if (lado1 === lado2 && lado2 === lado3 && lado1 === lado3) {
 
         return 'Esse é um triângulo equilátero';
 
-      }
-
-      else if (lado1 !== lado2 && lado2 !== lado3 && lado3 !== lado1)
-      {
+      } else if (lado1 !== lado2 && lado2 !== lado3 && lado3 !== lado1) {
 
         return 'Esse é um triângulo escaleno';
 
-      }
-
-      else if (lado1 === lado2 || lado2 === lado3 || lado1 === lado3)
-      {
+      } else if (lado1 === lado2 || lado2 === lado3 || lado1 === lado3) {
 
         return 'Esse é um triângulo isóceles';
 
@@ -617,5 +597,3 @@ function formatar_numero_telefone(numero) {
   return numero_formatado;
 
 }
-
-console.log(formatar_numero_telefone('759970673711'))
