@@ -321,21 +321,21 @@ function formatar_cpf(cpf) {
 
   for (let contador = 0; contador < 14; contador++) {
 
-        if (contador === 3) {
+    if (contador === 3) {
 
-          cpf_formatado.splice(contador, 0, '.');
+      cpf_formatado.splice(contador, 0, '.');
 
-        } else if (contador === 7) {
+    } else if (contador === 7) {
 
-          cpf_formatado.splice(contador, 0, '.');
+      cpf_formatado.splice(contador, 0, '.');
 
-        } else if (contador === 11) {
+    } else if (contador === 11) {
 
-          cpf_formatado.splice(contador, 0, '-');
+      cpf_formatado.splice(contador, 0, '-');
 
-        }
+    }
 
-      }
+  }
 
   cpf_formatado = cpf_formatado.join('');
 
