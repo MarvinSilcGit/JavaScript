@@ -1,181 +1,135 @@
-function palindromo(valor)
-{
+function palindromo(valor) {
 
-    let contador2 = 0;
+  let contador2 = 0;
 
-    if (valor.length <= 2)
-    {
+  if (valor.length <= 2) {
 
-        return 'Tamanho insuficiente';
+    return 'Tamanho insuficiente';
+
+  } else {
+
+    for (let contador1 = 0; contador1 < valor.length; contador1++) {
+
+      if (valor[contador1] === valor.at(-1 - contador1)) {
+
+        contador2 += 1
+
+      }
+
+    }
+
+    if (contador2 === valor.length) {
+
+      return `${valor} é palíndromo`;
+
+    } else {
+
+      return `${valor} não é palíndromo`;
 
     }
 
-    else
-    {
-
-        for (let contador1 = 0; contador1 < valor.length; contador1++)
-        {
-
-            if (valor[contador1] === valor.at(-1 - contador1))
-            {
-
-                contador2 += 1
-
-            }
-
-        }
-
-        if (contador2 === valor.length)
-        {
-
-            return `${valor} é palíndromo`;
-
-        }
-
-        else
-        {
-
-            return `${valor} não é palíndromo`;
-
-        }
-
-    }
+  }
 
 }
 
 
-function atm_machine(valor)
-{
+function atm_machine(valor) {
 
-    let valor_pagamento = valor;
+  let valor_pagamento = valor;
 
-    if (valor_pagamento < 1)
-    {
+  if (valor_pagamento < 1) {
 
-        return 'Valor insuficiente para saque';
+    return 'Valor insuficiente para saque';
 
-    }
+  } else {
 
-    else
-    {
-        let cedulas = 0;
+    let cedulas = 0;
 
-        let limite_cedulas = 200;
+    let limite_cedulas = 200;
 
-        let resultado = [];
+    let resultado = [];
 
-        let limite_moedas = 0.5;
+    let limite_moedas = 0.5;
 
-        let moedas = 0;
+    let moedas = 0;
 
-        while (true)
-        {
+    while (true) {
 
-            if (limite_cedulas <= valor_pagamento)
-            {
+      if (limite_cedulas <= valor_pagamento) {
 
-                valor_pagamento -= limite_cedulas;
+        valor_pagamento -= limite_cedulas;
 
-                cedulas += 1;
+        cedulas += 1;
+
+      } else {
+
+        resultado.push(`${cedulas} cédulas de R$ ${limite_cedulas}`);
+
+        if (valor_pagamento === 0) {
+
+            return resultado;
+
+        } else {
+
+          if (limite_cedulas === 200) {
+
+            limite_cedulas = 100;
+
+          } else if (limite_cedulas === 100) {
+
+            limite_cedulas = 50;
+
+          } else if (limite_cedulas === 50) {
+
+            limite_cedulas = 20;
+
+          } else if (limite_cedulas === 20) {
+
+            limite_cedulas = 10;
+
+          } else if (limite_cedulas === 10) {
+
+            limite_cedulas = 5;
+
+          } else if (limite_cedulas === 5) {
+
+            limite_cedulas = 2;
+
+          } else if (limite_cedulas === 2) {
+
+            limite_cedulas = 1;
+
+          }
+
+          cedulas = 0;
+
+          if (valor_pagamento > 0 && valor_pagamento < 1) {
+
+            if (limite_moedas <= valor_pagamento) {
+
+              valor_pagamento -= limite_moedas;
+
+              moedas += 1;
+
+            }
+
+            if (valor_pagamento === 0) {
+
+              resultado.push(`${moedas} moeda(s) de ${limite_moedas}`);
+
+              return resultado;
 
             }
 
-            else
-            {
-
-                resultado.push(`${cedulas} cédulas de R$ ${limite_cedulas}`);
-
-                if (valor_pagamento === 0)
-                {
-
-                    return resultado;
-
-                }
-
-                else
-                {
-
-                    if (limite_cedulas === 200)
-                    {
-
-                        limite_cedulas = 100;
-
-                    }
-
-                    else if (limite_cedulas === 100)
-                    {
-
-                        limite_cedulas = 50;
-
-                    }
-
-                    else if (limite_cedulas === 50)
-                    {
-
-                        limite_cedulas = 20;
-
-                    }
-
-                    else if (limite_cedulas === 20)
-                    {
-
-                        limite_cedulas = 10;
-
-                    }
-
-                    else if(limite_cedulas === 10)
-                    {
-
-                        limite_cedulas = 5;
-
-                    }
-
-                    else if (limite_cedulas === 5)
-                    {
-
-                        limite_cedulas = 2;
-
-                    }
-
-                    else if (limite_cedulas === 2)
-                    {
-
-                        limite_cedulas = 1;
-
-                    }
-
-                    cedulas = 0;
-
-                    if (valor_pagamento > 0 && valor_pagamento < 1)
-                    {
-
-                        if (limite_moedas <= valor_pagamento)
-                        {
-
-                            valor_pagamento -= limite_moedas;
-
-                            moedas += 1;
-
-                        }
-
-                        if (valor_pagamento === 0)
-                        {
-
-                            resultado.push(`${moedas} moeda(s) de ${limite_moedas}`);
-
-                            return resultado;
-
-                        }
-
-                    }
-
-                }
-
-            }
+          }
 
         }
 
+      }
+
     }
+
+  }
 
 }
 
@@ -195,185 +149,214 @@ console.log(atm_machine(16));*/
 
 
 
-function raio_circulo(area)
-{
+function raio_circulo(area) {
 
-    area = 3.14 * (area**2);
+  area = 3.14 * (area**2);
 
-    return area;
-
-}
-
-
-function calculo_imc(peso, altura)
-{
-    let imc = peso / altura ** 2
-
-    return imc.toFixed(2);
+  return area;
 
 }
 
 
-function calculo_tmb(peso, altura, idade, genero)
-{
+function calculo_imc(peso, altura) {
 
-    const lista_generos = ['Masculino', 'masculino', 'Feminino', 'feminino'];
+  let imc = peso / altura ** 2
 
-    let tmb = 0;
+  return imc.toFixed(2);
 
-    if (lista_generos.includes(genero, 0) === false)
+}
+
+
+function calculo_tmb(peso, altura, idade, genero) {
+
+  const lista_generos = ['Masculino', 'masculino', 'Feminino', 'feminino'];
+
+  let tmb = 0;
+
+  if (lista_generos.includes(genero, 0) === false)
+  {
+    return 'Gênero inválido';
+
+  }
+
+  else
+  {
+
+    if (genero === 'Masculino' || genero === 'masculino')
+      {
+
+        tmb = (10 * peso) + (6.25 * altura) - (5 * idade) + 5;
+
+        return tmb.toFixed(2);
+
+      }
+      else if (genero === 'Feminino' || genero === 'feminino')
+      {
+        tmb = (10 * peso) + (6.25 * altura) - (5 * idade) - 161;
+
+        return tmb.toFixed(2);
+
+      }
+
+  }
+
+}
+
+
+function triangulo_validade_tipo(lado1, lado2, lado3) {
+
+  if (lado1 <= 0 || lado2 <= 0 || lado3 <= 0)
+  {
+
+    return 'Um triângulo naõ poder ter lado 0';
+
+  }
+
+  else
+  {
+
+    if (lado1 + lado2 <= lado3)
     {
-        return 'Gênero inválido';
+
+      return 'A somas desse lados não forma um triângulo';
 
     }
 
     else
     {
 
-        if (genero === 'Masculino' || genero === 'masculino')
-        {
+      if (lado1 === lado2 && lado2 === lado3 && lado1 === lado3)
+      {
 
-            tmb = (10 * peso) + (6.25 * altura) - (5 * idade) + 5;
+        return 'Esse é um triângulo equilátero';
 
-            return tmb.toFixed(2);
+      }
 
-        }
-        else if (genero === 'Feminino' || genero === 'feminino')
-        {
-            tmb = (10 * peso) + (6.25 * altura) - (5 * idade) - 161;
+      else if (lado1 !== lado2 && lado2 !== lado3 && lado3 !== lado1)
+      {
 
-            return tmb.toFixed(2);
+        return 'Esse é um triângulo escaleno';
 
-        }
+      }
+
+      else if (lado1 === lado2 || lado2 === lado3 || lado1 === lado3)
+      {
+
+        return 'Esse é um triângulo isóceles';
+
+      }
 
     }
+
+  }
 
 }
 
 
-function triangulo_validade_tipo(lado1, lado2, lado3)
-{
+function gerador_tabuada_simples(numero_tabuada) {
 
-    if (lado1 <= 0 || lado2 <= 0 || lado3 <= 0)
-    {
+  for (let contador = 1; contador < 11; contador++) {
 
-        return 'Um triângulo naõ poder ter lado 0';
+    console.log(`${numero_tabuada} x ${contador} = ${numero_tabuada * contador}`);
 
-    }
+  }
 
-    else
-    {
-
-        if (lado1 + lado2 <= lado3)
-        {
-
-            return 'A somas desse lados não forma um triângulo';
-
-        }
-
-        else
-        {
-
-            if (lado1 === lado2 && lado2 === lado3 && lado1 === lado3)
-            {
-
-                return 'Esse é um triângulo equilátero';
-
-            }
-
-            else if (lado1 !== lado2 && lado2 !== lado3 && lado3 !== lado1)
-            {
-
-                return 'Esse é um triângulo escaleno';
-
-            }
-
-            else if (lado1 === lado2 || lado2 === lado3 || lado1 === lado3)
-            {
-
-                return 'Esse é um triângulo isóceles';
-
-            }
-
-        }
-
-    }
+  return "";
 
 }
 
 
-function gerador_tabuada_simples(numero_tabuada)
-{
+function gerador_tabuada_inico_fim(numero_inicial, numero_final) {
 
-    for (let contador = 1; contador < 11; contador++)
-    {
+  for (let contador = 1; contador < numero_final + 1; contador++) {
 
-        console.log(`${numero_tabuada} x ${contador} = ${numero_tabuada * contador}`);
+    console.log(`${numero_inicial} x ${contador} = ${numero_inicial * contador}`);
 
-    }
+  }
 
-    return "";
+  return 0
 
 }
 
 
-function gerador_tabuada_inico_fim(numero_inicial, numero_final)
-{
+function gerador_tabuada_inicio_fim_razao(numero_inicial, numero_final, razao) {
 
-    for (let contador = 1; contador < numero_final + 1; contador++)
-    {
+  for (let contador = 1; contador <= numero_final; contador += razao) {
 
-        console.log(`${numero_inicial} x ${contador} = ${numero_inicial * contador}`);
+    console.log(`${numero_inicial} x ${contador} = ${numero_inicial * contador}`)
 
-    }
-
-    return 0
-
-}
-
-
-function gerador_tabuada_inicio_fim_razao(numero_inicial, numero_final, razao)
-{
-
-    for (let contador = 1; contador <= numero_final; contador += razao)
-    {
-
-        console.log(`${numero_inicial} x ${contador} = ${numero_inicial * contador}`)
-
-    }
+  }
 
     return 0;
 
 }
 
 
-function juros_compostos(valor_inicial, aporte_mensal, juros_anual, quantidade_meses)
-{
+function juros_compostos(valor_inicial, aporte_mensal, juros_anual, quantidade_meses) {
 
-    let ganho_bruto_total = valor_inicial;
+  let ganho_bruto_total = valor_inicial;
 
-    let ganho_juros = 0;
+  let ganho_juros = 0;
 
-    for (let contador = 1; contador < quantidade_meses + 1; contador++)
-    {
+  for (let contador = 1; contador < quantidade_meses + 1; contador++) {
 
-        ganho_bruto_total += ganho_bruto_total / 100 * juros_anual / 12;
+      ganho_bruto_total += ganho_bruto_total / 100 * juros_anual / 12;
 
-        ganho_juros += ganho_bruto_total / 100 * juros_anual / 12;
+      ganho_juros += ganho_bruto_total / 100 * juros_anual / 12;
 
-        console.log(`O valor no ${contador}° mês será de R$ ${ganho_bruto_total.toFixed(2)}. Com uma taxa de ${juros_anual.toFixed(2)}% anual, gerou o valor de R$ ${ganho_juros.toFixed(2)} em juros`)
+      console.log(`O valor no ${contador}° mês será de R$ ${ganho_bruto_total.toFixed(2)}. Com uma taxa de ${juros_anual.toFixed(2)}% anual, gerou o valor de R$ ${ganho_juros.toFixed(2)} em juros`)
 
-        ganho_bruto_total += aporte_mensal;
+      ganho_bruto_total += aporte_mensal;
 
-    }
+  }
 
-    return ''
+  return ''
 
 }
 
 
-function validade_cpf(cpf)
-{
+function formatar_cpf(cpf) {
+
+  let cpf_formatado = [... cpf]
+
+  for (let contador = 0; contador < 14; contador++) {
+
+        if (contador === 3) {
+
+          cpf_formatado.splice(contador, 0, '.');
+
+        } else if (contador === 7) {
+
+          cpf_formatado.splice(contador, 0, '.');
+
+        } else if (contador === 11) {
+
+          cpf_formatado.splice(contador, 0, '-');
+
+        }
+
+      }
+
+  cpf_formatado = cpf_formatado.join('');
+
+  return `${cpf_formatado}`;
+
+}
+
+
+function validade_cpf(cpf) {
+
+  if (cpf.length !== 11) {
+
+    return 'CPF inválido'
+
+  } else {
+
+    let estado = cpf[8]
+
+    let cpf_validador = [... cpf].splice(0, 9);
+
+    cpf_validador = cpf_validador.join('');
 
     const dicionario_estados = {"1": "Distrido Federal, Goiás, Mato Grosso do Sul ou Tocantins", "2": "Pará, Amazonas, Acre, Amapá, Rondônio ou Roraíma",
                               "3": "Ceará, Maranhão ou Piauí",
@@ -383,150 +366,63 @@ function validade_cpf(cpf)
 
     let resultado_posicao_j = 0;
 
-        let resultado_posicao_k = 0;
+    let resultado_posicao_k = 0;
 
+    let posicao_j = 0;
 
+    let posicao_k = 0;
 
-        let estado = cpf[8]
+    let contador = 10;
 
-        let posicao_j = 0;
+    for (let contador2 of cpf_validador) {
 
-        let posicao_k = 0;
+      resultado_posicao_j += parseInt(contador2) * contador;
 
-        let resultado_cpf = 0;
-
-    if (cpf.length !== 11)
-    {
-
-        return 'CPF inválido';
+      contador--;
 
     }
 
-    else
-    {
+    if (resultado_posicao_j % 11 < 2) {
 
-        let contador = 10;
+      cpf_validador += 0;
 
-        for (let contador2 of cpf)
-        {
+    } else if (resultado_posicao_j % 11 >= 2 && resultado_posicao_j % 11 <=10) {
 
-            resultado_cpf = parseInt(contador2, 10)
-
-            resultado_posicao_j += resultado_cpf * contador;
-
-            contador--;
-
-            if (contador === 1)
-            {
-                break
-            }
-
-        }
-
-        if (resultado_posicao_j % 11 < 2)
-        {
-
-            posicao_j = 0;
-
-        }
-
-        else if (resultado_posicao_j % 11 >= 2 && resultado_posicao_j % 11 <=10)
-        {
-
-            posicao_j = 11 - (resultado_posicao_j % 11);
-
-        }
-
-        else
-        {
-
-            return 'CPF inválido';
-
-        }
-
-        contador = 11;
-
-        for (let contador2 of cpf)
-        {
-
-            resultado_cpf = parseInt(contador2, 10);
-
-            resultado_posicao_k += resultado_cpf * contador;
-
-            contador--;
-
-            if (contador === 1)
-            {
-
-                break;
-
-            }
-
-        }
-
-        if (resultado_posicao_k % 11 < 2)
-        {
-
-            posicao_k = 0;
-
-        }
-
-        else if (resultado_posicao_k % 11 >= 2 && resultado_posicao_k % 11 <=10)
-        {
-
-            posicao_k = 11 - (resultado_posicao_k % 11);
-
-        }
-
-        else
-        {
-
-            return 'CPF inválido';
-
-        }
-
-        posicao_j = posicao_j.toString();
-
-        posicao_k = posicao_k.toString();
-
-        cpf = [...cpf]
-
-        if (posicao_j === cpf[9] && posicao_k === cpf[10])
-        {
-
-            for (let contador3 = 0; contador3 < 14; contador3++)
-            {
-
-                if (contador3 === 3)
-                {
-
-                    cpf.splice(contador3, 0, '.');
-
-                }
-
-                else if (contador3 === 7)
-                {
-
-                    cpf.splice(contador3, 0, '.');
-
-                }
-
-                else if (contador3 === 11)
-                {
-
-                    cpf.splice(contador3, 0, '-');
-
-                }
-
-            }
-
-        }
-
-        cpf = cpf.join('')
+      cpf_validador += 11 - (resultado_posicao_j % 11);
 
     }
 
-    return `O CPF ${cpf} é válido, sendo emitido em: ${dicionario_estados[estado]}`
+    contador = 11;
+
+    for (let contador2 of cpf_validador) {
+
+      resultado_posicao_k += parseInt(contador2) * contador;
+
+      contador--;
+
+    }
+
+    if (resultado_posicao_k % 11 < 2) {
+
+      cpf_validador += 0;
+
+    } else if (resultado_posicao_k % 11 >= 2 && resultado_posicao_k % 11 <=10) {
+
+      cpf_validador += 11 - (resultado_posicao_k % 11);
+
+    }
+
+    if (cpf === cpf_validador) {
+
+      return `O CPF ${formatar_cpf(cpf)} é válido, sendo emitido em: ${dicionario_estados[estado]}`
+
+    } else {
+
+      return 'CPF inválido';
+
+    }
+
+  }
 
 }
 
@@ -638,7 +534,7 @@ function validade_cnpj(cnpj) {
 
 }
 
-console.log(validade_cnpj('59120772000100'));
+//console.log(validade_cnpj('59120772000100'));
 
 function gerador_cnpj() {
 
