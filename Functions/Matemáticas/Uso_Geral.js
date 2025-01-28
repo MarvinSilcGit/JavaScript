@@ -531,131 +531,139 @@ function validade_cpf(cpf)
 }
 
 
-function formatar_cnpj(cnpj)
-{
+function formatar_cnpj(cnpj) {
 
-    cnpj = [...cnpj]
+  cnpj = [...cnpj]
 
-    for (let contador = 0; contador < 18; contador++)
-    {
+  for (let contador = 0; contador < 18; contador++) {
 
-        if (contador === 2)
-        {
+    if (contador === 2) {
 
-            cnpj.splice(contador, 0, '.');
+      cnpj.splice(contador, 0, '.');
 
-        }
+    } else if (contador === 6) {
 
-        else if (contador === 6)
-        {
+      cnpj.splice(contador, 0, '.');
 
-            cnpj.splice(contador, 0, '.');
+    } else if (contador === 10) {
 
-        }
+      cnpj.splice(contador, 0, '/');
 
-        else if (contador === 10)
-        {
+    } else if (contador === 15) {
 
-            cnpj.splice(contador, 0, '/');
-
-        }
-
-        else if (contador === 15)
-        {
-
-            cnpj.splice(contador, 0, '-');
-
-        }
+      cnpj.splice(contador, 0, '-');
 
     }
 
-    cnpj = cnpj.join('');
+  }
 
-    return `${cnpj}`
+  cnpj = cnpj.join('');
+
+  return `${cnpj}`
 
 }
 
 
-function validade_cnpj(cnpj)
-{
+function validade_cnpj(cnpj) {
 
-    cnpj = [... cnpj]
+  cnpj = [... cnpj]
 
-    let cnpj_validador = [...cnpj];
+  let cnpj_validador = [...cnpj];
 
-    cnpj_validador.splice(12,2);
+  cnpj_validador.splice(12,2);
 
-    cnpj_validador = cnpj_validador.join('');
+  cnpj_validador = cnpj_validador.join('');
 
-    let resultado_posicao_x_1 = 0;
+  let resultado_posicao_x_1 = 0;
 
-    let resultado_posicao_x_2 = 0;
+  let resultado_posicao_x_2 = 0;
 
-    let posicao_x_1 = 0;
+  let posicao_x_1 = 0;
 
-    let posicao_x_2 = 0;
+  let posicao_x_2 = 0;
 
-    let contador = 5;
+  let contador = 5;
 
-    for (let contador2 of cnpj_validador)
-    {
+  for (let contador2 of cnpj_validador) {
 
-        contador++;
+    contador++;
 
-        posicao_x_1 = parseInt(contador2, 10);
+    posicao_x_1 = parseInt(contador2, 10);
 
-        resultado_posicao_x_1 += posicao_x_1 * contador;
+    resultado_posicao_x_1 += posicao_x_1 * contador;
 
-        if (contador === 9)
-        {
+    if (contador === 9) {
 
-            contador = 1;
-
-        }
+      contador = 1;
 
     }
 
-    cnpj_validador += resultado_posicao_x_1 % 11;
+  }
 
-    contador = 4;
+  cnpj_validador += resultado_posicao_x_1 % 11;
 
-    for (let contador2 of cnpj_validador)
-    {
+  contador = 4;
 
-        contador++;
+  for (let contador2 of cnpj_validador) {
 
-        posicao_x_2 = parseInt(contador2, 10);
+    contador++;
 
-        resultado_posicao_x_2 += posicao_x_2 * contador;
+    posicao_x_2 = parseInt(contador2, 10);
 
-        if (contador === 9)
-        {
+    resultado_posicao_x_2 += posicao_x_2 * contador;
 
-            contador = 1;
+    if (contador === 9) {
 
-        }
+      contador = 1;
 
-    }
+      }
 
-    cnpj_validador += resultado_posicao_x_2 % 11;
+  }
 
-    cnpj_validador = formatar_cnpj(cnpj_validador)
+  cnpj_validador += resultado_posicao_x_2 % 11;
 
-    cnpj = formatar_cnpj(cnpj)
+  cnpj_validador = formatar_cnpj(cnpj_validador)
 
-    if (cnpj === cnpj_validador)
-    {
+  cnpj = formatar_cnpj(cnpj)
 
-        return `O CNPJ ${cnpj} é válido`
-    }
+  if (cnpj === cnpj_validador) {
 
-    else
-    {
+    return `O CNPJ ${cnpj} é válido`
 
-        return `O CNPJ ${cnpj} é inválido`
+  } else {
 
-    }
+    return `O CNPJ ${cnpj} é inválido`
+
+  }
 
 }
 
 console.log(validade_cnpj('59120772000100'));
+
+function gerador_cnpj() {
+
+  let cnpj = '';
+
+  for (let contador = 0; contador < 14; contador++) {
+
+    if (contador === 8 || contador === 9 || contador === 10) {
+
+      cnpj += '0';
+
+    } else if (contador === 11) {
+
+      cnpj += '1';
+
+    } else {
+
+      cnpj += Math.floor(Math.random() * 10);
+
+    }
+
+  }
+
+  cnpj = formatar_cnpj(cnpj)
+
+  return cnpj
+
+}
