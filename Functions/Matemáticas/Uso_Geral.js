@@ -531,16 +531,61 @@ function validade_cpf(cpf)
 }
 
 
+function formatar_cnpj(cnpj)
+{
+
+    cnpj = [...cnpj]
+
+    for (let contador = 0; contador < 18; contador++)
+    {
+
+        if (contador === 2)
+        {
+
+            cnpj.splice(contador, 0, '.');
+
+        }
+
+        else if (contador === 6)
+        {
+
+            cnpj.splice(contador, 0, '.');
+
+        }
+
+        else if (contador === 10)
+        {
+
+            cnpj.splice(contador, 0, '/');
+
+        }
+
+        else if (contador === 15)
+        {
+
+            cnpj.splice(contador, 0, '-');
+
+        }
+
+    }
+
+    cnpj = cnpj.join('');
+
+    return `${cnpj}`
+
+}
+
+
 function validade_cnpj(cnpj)
 {
 
-    let cnpj_validade = [...cnpj];
+    cnpj = [... cnpj]
 
-    cnpj_validade.splice(12,2);
+    let cnpj_validador = [...cnpj];
 
-    cnpj_validade = cnpj_validade.join('');
+    cnpj_validador.splice(12,2);
 
-    let cnpj_comparacao = [... cnpj];
+    cnpj_validador = cnpj_validador.join('');
 
     let resultado_posicao_x_1 = 0;
 
@@ -552,7 +597,7 @@ function validade_cnpj(cnpj)
 
     let contador = 5;
 
-    for (let contador2 of cnpj_validade)
+    for (let contador2 of cnpj_validador)
     {
 
         contador++;
@@ -570,11 +615,11 @@ function validade_cnpj(cnpj)
 
     }
 
-    cnpj_validade += resultado_posicao_x_1 % 11;
+    cnpj_validador += resultado_posicao_x_1 % 11;
 
     contador = 4;
 
-    for (let contador2 of cnpj_validade)
+    for (let contador2 of cnpj_validador)
     {
 
         contador++;
@@ -592,66 +637,25 @@ function validade_cnpj(cnpj)
 
     }
 
-    cnpj_validade += resultado_posicao_x_2 % 11;
+    cnpj_validador += resultado_posicao_x_2 % 11;
 
-    cnpj_validade = [... cnpj_validade]
+    cnpj_validador = formatar_cnpj(cnpj_validador)
 
-    for (let contador3 = 0; contador3 < 18; contador3++)
+    cnpj = formatar_cnpj(cnpj)
+
+    if (cnpj === cnpj_validador)
     {
 
-        if (contador3 === 2)
-        {
-
-            cnpj_validade.splice(contador3, 0, '.');
-
-            cnpj_comparacao.splice(contador3, 0, '.');
-
-        }
-
-        else if (contador3 === 6)
-        {
-
-            cnpj_validade.splice(contador3, 0, '.');
-
-            cnpj_comparacao.splice(contador3, 0, '.');
-
-        }
-
-        else if (contador3 === 10)
-        {
-
-            cnpj_validade.splice(contador3, 0, '/');
-
-            cnpj_comparacao.splice(contador3, 0, '/');
-
-        }
-
-        else if (contador3 === 15)
-        {
-
-            cnpj_validade.splice(contador3, 0, '-')
-
-            cnpj_comparacao.splice(contador3, 0, '-');
-
-        }
-
-    }
-
-    cnpj_validade = cnpj_validade.join('');
-
-    cnpj_comparacao = cnpj_comparacao.join('');
-
-    if (cnpj_comparacao === cnpj_validade)
-    {
-
-        return `O CNPJ ${cnpj_validade} é válido`
+        return `O CNPJ ${cnpj} é válido`
     }
 
     else
     {
 
-        return `O CNPJ ${cnpj_comparacao} é inválido`
+        return `O CNPJ ${cnpj} é inválido`
 
     }
 
 }
+
+console.log(validade_cnpj('59120772000100'));
