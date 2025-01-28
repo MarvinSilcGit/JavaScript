@@ -468,9 +468,7 @@ function validade_cnpj(cnpj) {
 
   cnpj = [... cnpj]
 
-  let cnpj_validador = [...cnpj];
-
-  cnpj_validador.splice(12,2);
+  let cnpj_validador = [...cnpj].splice(0, 12);
 
   cnpj_validador = cnpj_validador.join('');
 
@@ -478,17 +476,13 @@ function validade_cnpj(cnpj) {
 
   let resultado_posicao_x_2 = 0;
 
-  let posicao_x_1 = 0;
-
-  let posicao_x_2 = 0;
-
   let contador = 5;
 
   for (let contador2 of cnpj_validador) {
 
     contador++;
 
-    posicao_x_1 = parseInt(contador2, 10);
+    let posicao_x_1 = parseInt(contador2, 10);
 
     resultado_posicao_x_1 += posicao_x_1 * contador;
 
@@ -508,7 +502,7 @@ function validade_cnpj(cnpj) {
 
     contador++;
 
-    posicao_x_2 = parseInt(contador2, 10);
+    let posicao_x_2 = parseInt(contador2, 10);
 
     resultado_posicao_x_2 += posicao_x_2 * contador;
 
@@ -538,7 +532,7 @@ function validade_cnpj(cnpj) {
 
 }
 
-//console.log(validade_cnpj('59120772000100'));
+console.log(validade_cnpj('59120772000100'));
 
 function gerador_cnpj() {
 
