@@ -116,6 +116,12 @@ function raiz_quadrada(valor) {
 
   let base = 2;
 
+  if (numero < 0) {
+
+    return 'Número imaginário';
+
+  }
+
   let resultado_raiz_quadrada = (base + numero / base) / 2;
 
   resultado_raiz_quadrada = resultado_raiz_quadrada ** 2;
@@ -166,6 +172,7 @@ function numero_primo(valor) {
         return `${numero} é um número primo, pois ele é divisível somente por ele e por 1`;
 
     } else {
+
       process.stdout.write(`O número ${numero} não é primo, pois ele é divisível por: `);
 
       for (let contador = 1; contador < numero + 1; contador++) {
@@ -258,15 +265,17 @@ function ano_bissexto(ano)
 
 function numero_decimal_inteiro(numero) {
 
+  let numero_decimal = numero;
+
   let numero_inteiro = Math.trunc(numero);
 
-  if (numero > numero_inteiro) {
+  if (numero_decimal > numero_inteiro || numero_decimal !== numero) {
 
     return `O número ${numero} é decimal`;
 
   } else {
 
-    if (numero.includes('.')) {
+    if (numero_decimal.includes('.')) {
 
       return `O número ${numero} é decimal`;
 
@@ -370,7 +379,72 @@ function decimal_binary(numero) {
 }
 
 
-function equacao_segundo_grau_bhaskara(coeficiente_a, coeficiente_b, coeficiente_c) {
+function equacao_segundo_grau_bhaskara(a, b, c) {
 
+  let coeficiente_a = parseFloat(a);
+
+  let coeficiente_b = parseFloat(b);
+
+  let coeficiente_c = parseFloat(c);
+
+  const mathjs = require('mathjs');
+
+  if (coeficiente_a === 0) {
+
+    return 'Coeficiente a não pode ser 0';
+
+  } else {
+
+    let delta = coeficiente_b ** 2 - 4 * coeficiente_a * coeficiente_c;
+
+    if (delta < 0) {
+
+      return 'A equação não possui raízes reais';
+
+    } else {
+
+      let x_1 = -coeficiente_b + Math.sqrt(delta)
+
+      if (Math.floor(x_1 / (2 * coeficiente_a)) !== x_1 / (2 * coeficiente_a)) {
+
+        x_1 = mathjs.fraction(x_1, 2 * coeficiente_a);
+
+        x_1 = mathjs.format(x_1, {x_1: 'ratio'});
+
+      } else {
+
+        x_1 /= (2 * coeficiente_a);
+
+      }
+
+      let x_2 = -coeficiente_b - Math.sqrt(delta)
+
+      if (Math.floor(x_2 / (2 * coeficiente_a)) !== x_2 / (2 * coeficiente_a)) {
+
+        x_2 = mathjs.fraction(x_2, 2* coeficiente_a);
+
+        x_2 = mathjs.format(x_2, {x_2: 'ratio'});
+
+      } else {
+
+        x_2 /= (2 * coeficiente_a);
+
+      }
+
+      if (delta === 0) {
+
+        return `A equação possui apenas uma raiz real. A raíz positiva é ${x_1}`;
+
+      } else {
+
+        return `A equação é completa. A raíz positiva é ${x_1}. A raíz negativa é ${x_2}`
+
+      }
+
+    }
+
+  }
 
 }
+
+console.log(equacao_segundo_grau_bhaskara(1, -6,-8));
