@@ -12,6 +12,9 @@
   },
   "private": true,
   "dependencies": {
+    "fraction.js": "^5.2.1",
+    "fractional": "^1.0.0",
+    "fractional-arithmetic": "^1.2.3",
     "mathjs": "^14.1.0"
   }
 }
