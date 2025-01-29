@@ -446,5 +446,3 @@ function equacao_segundo_grau_bhaskara(a, b, c) {
   }
 
 }
-
-console.log(equacao_segundo_grau_bhaskara(2, -6,-8));
