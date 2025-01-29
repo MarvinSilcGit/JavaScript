@@ -373,11 +373,4 @@ function decimal_binary(numero) {
 function equacao_segundo_grau_bhaskara(coeficiente_a, coeficiente_b, coeficiente_c) {
 
 
-
-
-
 }
-
-import {fraction} from 'mathjs'
-
-fraction(1,2)
