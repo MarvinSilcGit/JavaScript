@@ -381,19 +381,19 @@ function decimal_binary(numero) {
 
 function equacao_segundo_grau_bhaskara(a, b, c) {
 
-  let coeficiente_a = parseFloat(a);
+  let coeficiente_a = parseInt(a);
 
-  let coeficiente_b = parseFloat(b);
+  let coeficiente_b = parseInt(b);
 
-  let coeficiente_c = parseFloat(c);
+  let coeficiente_c = parseInt(c);
 
   const mathjs = require('mathjs');
 
-  const Fraction = require('fractional-arithmetic').Fraction;
+  //const Fraction = require('fractional-arithmetic').Fraction;
 
-  const Frac = require('fractional').Fraction
+  //const Frac = require('fractional').Fraction
 
-  const frac = require('fraction.js');
+  //const frac = require('fraction.js');
 
   if (coeficiente_a === 0) {
 
@@ -411,19 +411,17 @@ function equacao_segundo_grau_bhaskara(a, b, c) {
 
       let x_1 = -coeficiente_b + Math.sqrt(delta)
 
-      console.log(x_1 % 1);
-
       if (Math.floor(x_1 / (2 * coeficiente_a)) !== x_1 / (2 * coeficiente_a)) {
 
-        //x_1 = mathjs.fraction(x_1, 2 * coeficiente_a); --mathjs
+        x_1 = mathjs.fraction(x_1, 2 * coeficiente_a); //--mathjs
 
-        //x_1 = mathjs.format(x_1, {x_1: 'ratio'}); --mathjs
+        x_1 = mathjs.format(x_1, {x_1: 'ratio'}); //--mathjs
 
         //x_1 = new Fraction(x_1, 2 * coeficiente_a).toString(); -- fractional-arithmetic
 
-        //x_1 = new Frac(x_1, 2 * coeficiente_a); -- fractional
+        //x_1 = new Frac(x_1, 2 * coeficiente_a) // -- fractional
 
-        x_1 = frac(x_1, 2 * coeficiente_a);
+        //x_1 = frac(x_1, 2 * coeficiente_a);
 
       } else {
 
@@ -435,14 +433,15 @@ function equacao_segundo_grau_bhaskara(a, b, c) {
 
       if (Math.floor(x_2 / (2 * coeficiente_a)) !== x_2 / (2 * coeficiente_a)) {
 
-        //x_2 = mathjs.fraction(x_2, 2* coeficiente_a);
+        x_2 = mathjs.fraction(x_2, 2* coeficiente_a);
 
-        //x_2 = mathjs.format(x_2, {x_2: 'ratio'});
+        x_2 = mathjs.format(x_2, {x_2: 'ratio'});
 
         //x_2 = new Fraction(x_2, 2 * coeficiente_a).toString();
 
-        //x_2 = new Frac(x_1, 2 * coeficiente_a);
-        x_2 = frac(x_1, 2 * coeficiente_a);
+        //x_2 = new Frac(x_1, 2 * coeficiente_a)
+
+        //x_2 = frac(x_1, 2 * coeficiente_a);
 
       } else {
 
@@ -465,4 +464,5 @@ function equacao_segundo_grau_bhaskara(a, b, c) {
   }
 
 }
-console.log(equacao_segundo_grau_bhaskara(3, -6, -8))
+
+console.log(equacao_segundo_grau_bhaskara(3, 6, 2));
