@@ -1,4 +1,4 @@
-import {numero_par_impar} from "./Validations";
+import {numero_par_impar as par_impar} from "./Validations.js";
 
 function resto_divisao(dividendo, divisor) {
 
@@ -216,7 +216,6 @@ function minimo_multiplo_comum(valor1, valor2) {
 
   let mmc = fatoracao[0];
 
-
   for (let contador = 0; contador < fatoracao.length - 1; contador++) {
 
     mmc *= fatoracao[contador + 1];
@@ -226,7 +225,7 @@ function minimo_multiplo_comum(valor1, valor2) {
   return mmc
 
 }
-console.log(minimo_multiplo_comum(12, 45))
+//console.log(minimo_multiplo_comum(12, 45))
 
 
 function collatz_conjecture(numero) {
@@ -237,14 +236,13 @@ function collatz_conjecture(numero) {
 
   while (resultado !== 1 || steps === 0) {
 
-    if (numero_par_impar(resultado)) {
-
-      resultado = resultado / 2;
-    }
-
-    else {
+    if (! par_impar(resultado)) {
 
       resultado = resultado * 3 + 1;
+
+    } else {
+
+      resultado = resultado / 2;
 
     }
 
@@ -252,7 +250,6 @@ function collatz_conjecture(numero) {
 
   }
 
-  return `Foram necessários ${steps} passos para o número ${Math.trunc(numero)}`;
-}
+  return `Foram necessários ${steps} passos para o número ${numero}`;
 
-console.log(collatz_conjecture(7))
+}

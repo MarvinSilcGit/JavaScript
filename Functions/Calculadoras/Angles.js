@@ -5,6 +5,7 @@ function radiano_graus(valor) {
   const graus = radiano * 180 / Math.PI;
 
   return `${radiano.toFixed(2)}° radianos equivalem à ${graus.toFixed(2)}° graus`
+
 }
 
 

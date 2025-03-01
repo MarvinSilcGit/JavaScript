@@ -41,26 +41,16 @@ function numero_primo(valor) {
 }
 
 
-export function numero_par_impar(valor)
-{
+export function numero_par_impar(valor) {
 
   const numero = parseInt(valor, 10)
 
-  if (numero % 2 === 0) {
-
-    return `O número ${numero} é par`;
-
-  } else {
-
-    return `O número ${numero} é ímpar`;
-
-  }
+  return numero % 2 === 0;
 
 }
 
 
-function ano_bissexto(ano)
-{
+function ano_bissexto(ano) {
 
   if (ano % 4 === 0) {
 
