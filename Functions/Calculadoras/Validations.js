@@ -41,7 +41,7 @@ function numero_primo(valor) {
 }
 
 
-function numero_par_impar(valor)
+export function numero_par_impar(valor)
 {
 
   const numero = parseInt(valor, 10)

@@ -1,3 +1,5 @@
+import {numero_par_impar} from "./Validations";
+
 function resto_divisao(dividendo, divisor) {
 
   const numero1 = parseFloat(dividendo);
@@ -224,5 +226,33 @@ function minimo_multiplo_comum(valor1, valor2) {
   return mmc
 
 }
-
 console.log(minimo_multiplo_comum(12, 45))
+
+
+function collatz_conjecture(numero) {
+
+  let steps = 0;
+
+  let resultado = parseInt(numero);
+
+  while (resultado !== 1 || steps === 0) {
+
+    if (numero_par_impar(resultado)) {
+
+      resultado = resultado / 2;
+    }
+
+    else {
+
+      resultado = resultado * 3 + 1;
+
+    }
+
+    steps++;
+
+  }
+
+  return `Foram necessários ${steps} passos para o número ${Math.trunc(numero)}`;
+}
+
+console.log(collatz_conjecture(7))
