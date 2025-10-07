@@ -31,20 +31,13 @@ function validar_cpf(cpf) {
 
   let cpf_validador = [... cpf].splice(0, 9);
 
-  cpf_validador = cpf_validador.join('');
-
-  const dicionario_estados =
-    {"1": "Distrido Federal, Goiás, Mato Grosso do Sul ou Tocantins", "2": "Pará, Amazonas, Acre, Amapá, Rondônio ou Roraíma",
-      "3": "Ceará, Maranhão ou Piauí",
-      "4": "Pernambuco, Rio Grande do Norte, Paraíba ou Alagoas", "5": "Bahia ou Sergipe", "6": "Minas Gerais",
-      "7": "Rio de Janeiro ou Espírito Santo", "8": "São Paulo",
-      "9":"Paraná ou Santa Catarina"}
-
   let resultado_posicao_j = 0;
 
   let resultado_posicao_k = 0;
 
   let contador = 10;
+
+  cpf_validador = cpf_validador.join('');
 
   for (let contador2 of cpf_validador) {
 
@@ -60,7 +53,7 @@ function validar_cpf(cpf) {
 
   } else if (resultado_posicao_j % 11 >= 2 && resultado_posicao_j % 11 <=10) {
 
-    cpf_validador += 11 - (resultado_posicao_j % 11);
+    cpf_validador += (11 - (resultado_posicao_j % 11)).toString();
 
   }
 
@@ -80,19 +73,11 @@ function validar_cpf(cpf) {
 
   } else if (resultado_posicao_k % 11 >= 2 && resultado_posicao_k % 11 <=10) {
 
-    cpf_validador += 11 - (resultado_posicao_k % 11);
+    cpf_validador += (11 - (resultado_posicao_k % 11)).toString();
 
   }
 
-  if (cpf === cpf_validador) {
-
-    return `O CPF ${formatar_cpf(cpf)} é válido, sendo emitido em: ${dicionario_estados[cpf[8]]}`
-
-  } else {
-
-    return 'CPF inválido';
-
-  }
+  return cpf === cpf_validador;
 
 }
 
@@ -111,4 +96,20 @@ function gerador_cpf() {
 
   return cpf;
 
+}
+
+
+function local_emissao_cpf(cpf){
+
+  const dicionario_estados =
+      {"1": "Distrito Federal, Goiás, Mato Grosso do Sul ou Tocantins",
+      "2": "Pará, Amazonas, Acre, Amapá, Rondônia ou Roraíma",
+      "3": "Ceará, Maranhão ou Piauí",
+      "4": "Pernambuco, Rio Grande do Norte, Paraíba ou Alagoas",
+      "5": "Bahia ou Sergipe", "6": "Minas Gerais",
+      "7": "Rio de Janeiro ou Espírito Santo",
+      "8": "São Paulo",
+      "9":"Paraná ou Santa Catarina"}
+
+    return `O CPF foi emitido em: ${dicionario_estados[cpf[8]]}`
 }
