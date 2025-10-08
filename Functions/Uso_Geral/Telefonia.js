@@ -1,6 +1,6 @@
 function estado_ddd(ddd) {
 
-  const discionario_ddd_estados = {"68": "Acre", "96": "Amapá", "92": "Amazonas", "97": "Amazonas", "91": "Pará",
+  const dicionario_ddd_estados = {"68": "Acre", "96": "Amapá", "92": "Amazonas", "97": "Amazonas", "91": "Pará",
     "93": "Pará", "94": "Pará", "69": "Rondônia", "95": "Roraima", "63": "Tocantins",
     "61": "Distrito Federal", "62": "Goiás", "64": "Goiás", "65": "Mato Grosso",
     "66": "Mato Grosso", "67": "Mato Grosso do Sul", "82": "Alagoas", "71": "Bahia",
@@ -16,6 +16,8 @@ function estado_ddd(ddd) {
     "53": "Rio Grande do Sul", "54": "Rio Grande do Sul", "55": "Rio Grande do Sul", "47": "Santa Catarina",
     "48": "Santa Catarina", "49": "Santa Catarina"}
 
+    return `${dicionario_ddd_estados[ddd]}`
+
 }
 
 
@@ -26,7 +28,6 @@ function formatar_numero_telefone(numero) {
   numero_formatado = [... numero_formatado];
 
   let codigo_local = numero.slice(0, 2)
-
 
   for (let contador = 0; contador < 17; contador++) {
 

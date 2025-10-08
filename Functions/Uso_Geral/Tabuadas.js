@@ -11,7 +11,7 @@ function gerador_tabuada_simples(numero_tabuada) {
 }
 
 
-function gerador_tabuada_inico_fim(numero_inicial, numero_final) {
+function gerador_tabuada_inicio_fim(numero_inicial, numero_final) {
 
   for (let contador = 1; contador < numero_final + 1; contador++) {
 

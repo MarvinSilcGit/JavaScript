@@ -155,7 +155,7 @@ function triangulo_tipo(lado1, lado2, lado3) {
 
       } else if (lado1 === lado2 || lado2 === lado3 || lado1 === lado3) {
 
-        return 'Esse é um triângulo isóceles';
+        return 'Esse é um triângulo isosceles';
 
       }
 

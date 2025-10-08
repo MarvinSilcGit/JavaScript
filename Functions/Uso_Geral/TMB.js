@@ -1,5 +1,3 @@
-
-
 function calculo_tmb(peso, altura, idade, genero) {
 
   const lista_generos = ['Masculino', 'masculino', 'Feminino', 'feminino'];
